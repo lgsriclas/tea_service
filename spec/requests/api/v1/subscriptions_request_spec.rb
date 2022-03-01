@@ -29,9 +29,11 @@ describe 'Subscriptions API' do
 
       expect(Subscription.count).to eq(1)
 
-      delete "/api/v1/subscriptions/#{subscription.id}"
+      delete "/api/v1/customers/#{customer.id}/subscriptions/#{subscription.id}"
 
       expect(response).to be_successful
+
+      expect(Subscription.count).to eq(0)
     end
   end
 end
