@@ -17,7 +17,19 @@ describe 'Subscriptions API' do
 
       header = {"CONTENT_TYPE" => "application/json"}
 
-      post "/api/v1/subscriptions", headers: header, params: JSON.generate(subscription)
+      post "/api/v1/customers/#{customer.id}/subscriptions", headers: header, params: JSON.generate(subscription)
+
+      expect(response).to be_successful
+    end
+
+    it 'deletes a subscription' do
+      customer = create(:customer)
+      tea = create(:tea)
+      subscription = create(:subscription, customer_id: customer.id, tea_id: tea.id)
+
+      expect(Subscription.count).to eq(1)
+
+      delete "/api/v1/subscriptions/#{subscription.id}"
 
       expect(response).to be_successful
     end
