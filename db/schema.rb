@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2022_03_01_181535) do
     t.string "frequency"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "customer_id", null: false
-    t.bigint "tea_id", null: false
+    t.bigint "customer_id"
+    t.bigint "tea_id"
     t.index ["customer_id"], name: "index_subscriptions_on_customer_id"
     t.index ["tea_id"], name: "index_subscriptions_on_tea_id"
   end
