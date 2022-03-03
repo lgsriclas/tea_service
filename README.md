@@ -2,7 +2,7 @@
 
 ## Background and Description
 
-Tea Service is backend application that allows users to manage tea subscriptions.  It provides API endpoints to get all teas, get one tea, create a new subscription, delete an existing subscription, and get all of a customer's tea subscriptions. It utilizes a Ruby on Rails framework and an RSpec suite for testing.  It was developed as a Mod 4 project at Turing School of Software and Design.  Project requirements can be found [here](https://mod4.turing.edu/projects/take_home/take_home_be).
+Tea Service is a backend application that allows users to manage tea subscriptions.  It provides API endpoints to get all teas, get one tea, create a new subscription, delete an existing subscription, and get all of a customer's tea subscriptions. It utilizes a Ruby on Rails framework and an RSpec suite for testing.  It was developed as a Mod 4 project at Turing School of Software and Design.  Project requirements can be found [here](https://mod4.turing.edu/projects/take_home/take_home_be).
 
 
 ## Schema
