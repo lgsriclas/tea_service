@@ -48,4 +48,34 @@ describe 'Subscriptions API' do
       expect(Subscription.count).to eq(0)
     end
   end
+
+  context 'sad path' do
+    it 'sends an error code if subscription is not created' do
+      customer = create(:customer)
+      tea_1 = create(:tea)
+      tea_2 = create(:tea)
+
+      subscription_data =
+        {
+          title: "My Subscription",
+          price: 10,
+          status: "Active",
+          frequency: "Monthly",
+          customer_id: customer.id,
+          tea_id: ""
+        }
+
+      post "/api/v1/customers/#{customer.id}/subscriptions", params: subscription_data.to_json,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+
+      error = (JSON.parse(response.body, symbolize_names: true))[:errors]
+
+      expect(response).to_not be_successful
+
+      expect(error[:details]).to eq("Subscription not created.")
+    end
+  end
 end
