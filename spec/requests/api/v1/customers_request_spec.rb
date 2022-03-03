@@ -21,4 +21,17 @@ describe 'Customers API' do
       expect(customer[:data][:attributes][:address]).to be_a(String)
     end
   end
+
+  context 'sad path' do
+    it 'sends an error code if customer does not exist' do
+
+      get "/api/v1/customers/5000"
+
+      error = (JSON.parse(response.body, symbolize_names: true))[:errors]
+
+      expect(response).to_not be_successful
+
+      expect(error[:details]).to eq("A customer with this id does not exist.")
+    end
+  end
 end
