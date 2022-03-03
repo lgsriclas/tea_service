@@ -54,8 +54,7 @@ STATUS: 200
 }
 ```
 
-#### `GET /api/vi/customers/:customer_id/subscriptions`
-#### RESPONSE
+## Subscriptions
 
 #### `POST /api/v1/customers/:customer_id/subscriptions`
 ##### Required Body Content:
@@ -77,7 +76,7 @@ STATUS: 200
 STATUS: 201
 {
   "data": {
-    "id": "96",
+    "id": "1",
     "type": "subscription",
     "attributes": {
       "title": "Jasmine Joy",
@@ -89,4 +88,36 @@ STATUS: 201
     }
   }
 }
+```
+
+#### `GET /api/vi/customers/:customer_id/subscriptions`
+#### RESPONSE
+
+```
+STATUS: 200
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "subscription",
+      "attributes": {
+          "title": "My Subscription",
+          "price": 10,
+          "status": "Active",
+          "frequency": "Monthly",
+          "customer_id": 5,
+          "tea_id": 10
+      }
+    }
+  ]
+}
+```
+
+#### `DELETE /api/vi/customers/:customer_id/subscriptions/1`
+#### RESPONSE
+
+```
+STATUS: 204
+
+
 ```
